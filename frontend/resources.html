@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resources - MyTechBlogs</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="fas fa-code me-2"></i>MyTechBlogs
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><i class="fas fa-info-circle me-1"></i>About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope me-1"></i>Contact</a></li>
+          <li class="nav-item"><a class="nav-link active" href="resources.html"><i class="fas fa-book me-1"></i>Resources</a></li>
+          <li class="nav-item"><a class="nav-link" href="submit.html"><i class="fas fa-plus-circle me-1"></i>Submit Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="resources-hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-4 fw-bold mb-4 animate-fade-in">Developer Resources</h1>
+          <p class="lead mb-4 animate-fade-in-delay">Curated tools, libraries, and learning materials to accelerate your development journey.</p>
+        </div>
+        <div class="col-lg-6 text-center">
+          <i class="fas fa-tools fa-8x text-white opacity-75"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resource Categories -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center mb-5">
+          <h2 class="display-5 fw-bold mb-3">Essential Developer Tools</h2>
+          <p class="lead text-muted">Hand-picked resources that every developer should know about</p>
+        </div>
+      </div>
+
+      <!-- Frontend Development -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h3 class="fw-bold mb-4">
+            <i class="fas fa-paint-brush me-2 text-primary"></i>Frontend Development
+          </h3>
+        </div>
+      </div>
+      
+      <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-4">
+          <a href="https://getbootstrap.com/" target="_blank" class="resource-card">
+            <div class="resource-icon">
+              <i class="fab fa-bootstrap"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Python</h5>
+            <p class="text-muted mb-3">A versatile programming language that's great for web development, data science, and automation.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-danger">Programming Language</span>
+              <i class="fas fa-external-link-alt text-primary"></i>
+            </div>
+          </a>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <a href="https://expressjs.com/" target="_blank" class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Express.js</h5>
+            <p class="text-muted mb-3">Fast, unopinionated, minimalist web framework for Node.js applications.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-secondary">Web Framework</span>
+              <i class="fas fa-external-link-alt text-primary"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Development Tools -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h3 class="fw-bold mb-4">
+            <i class="fas fa-wrench me-2 text-primary"></i>Development Tools
+          </h3>
+        </div>
+      </div>
+      
+      <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-4">
+          <a href="https://code.visualstudio.com/" target="_blank" class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h5 class="fw-bold mb-2">VS Code</h5>
+            <p class="text-muted mb-3">Free, open-source code editor with powerful extensions and debugging capabilities.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-primary">Code Editor</span>
+              <i class="fas fa-external-link-alt text-primary"></i>
+            </div>
+          </a>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <a href="https://git-scm.com/" target="_blank" class="resource-card">
+            <div class="resource-icon">
+              <i class="fab fa-git-alt"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Git</h5>
+            <p class="text-muted mb-3">Distributed version control system for tracking changes in source code.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-warning">Version Control</span>
+              <i class="fas fa-external-link-alt text-primary"></i>
+            </div>
+          </a>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <a href="https://www.docker.com/" target="_blank" class="resource-card">
+            <div class="resource-icon">
+              <i class="fab fa-docker"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Docker</h5>
+            <p class="text-muted mb-3">Platform for developing, shipping, and running applications using containerization.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-info">Containerization</span>
+              <i class="fas fa-external-link-alt text-primary"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Learning Resources -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h3 class="fw-bold mb-4">
+            <i class="fas fa-graduation-cap me-2 text-primary"></i>Learning Resources
+          </h3>
+        </div>
+      </div>
+      
+      <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-4">
+          <a href="https://developer.mozilla.org/" target="_blank" class="resource-card">
+            <div class="resource-icon">
+              <i class="fab fa-firefox"></i>
+            </div>
+            <h5 class="fw-bold mb-2">MDN Web Docs</h5>
+            <p class="text-muted mb-3">Comprehensive documentation for web technologies including HTML, CSS, and JavaScript.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-success">Documentation</span>
+              <i class="fas fa-external-link-alt text-primary"></i>
+            </div>
+          </a>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <a href="https://stackoverflow.com/" target="_blank" class="resource-card">
+            <div class="resource-icon">
+              <i class="fab fa-stack-overflow"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Stack Overflow</h5>
+            <p class="text-muted mb-3">The largest online community for programmers to learn and share knowledge.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-danger">Q&A Community</span>
+              <i class="fas fa-external-link-alt text-primary"></i>
+            </div>
+          </a>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <a href="https://github.com/" target="_blank" class="resource-card">
+            <div class="resource-icon">
+              <i class="fab fa-github"></i>
+            </div>
+            <h5 class="fw-bold mb-2">GitHub</h5>
+            <p class="text-muted mb-3">Platform for version control and collaboration, hosting millions of code repositories.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-dark">Code Hosting</span>
+              <i class="fas fa-external-link-alt text-primary"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools Comparison -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center mb-5">
+          <h2 class="display-5 fw-bold mb-3">Popular Tool Comparisons</h2>
+          <p class="lead text-muted">Quick comparisons to help you choose the right tools</p>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="bg-white rounded-3 p-4 shadow-sm h-100">
+            <h4 class="fw-bold mb-3">
+              <i class="fas fa-code-branch me-2 text-primary"></i>Frontend Frameworks
+            </h4>
+            <div class="table-responsive">
+              <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <th>Framework</th>
+                    <th>Learning Curve</th>
+                    <th>Performance</th>
+                    <th>Community</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>React</strong></td>
+                    <td><span class="badge bg-warning">Medium</span></td>
+                    <td><span class="badge bg-success">High</span></td>
+                    <td><span class="badge bg-success">Large</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Vue.js</strong></td>
+                    <td><span class="badge bg-success">Easy</span></td>
+                    <td><span class="badge bg-success">High</span></td>
+                    <td><span class="badge bg-warning">Medium</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Angular</strong></td>
+                    <td><span class="badge bg-danger">Hard</span></td>
+                    <td><span class="badge bg-success">High</span></td>
+                    <td><span class="badge bg-success">Large</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="bg-white rounded-3 p-4 shadow-sm h-100">
+            <h4 class="fw-bold mb-3">
+              <i class="fas fa-database me-2 text-primary"></i>Databases
+            </h4>
+            <div class="table-responsive">
+              <table class="table table-borderless">
+                <thead>
+                  <tr>
+                    <th>Database</th>
+                    <th>Type</th>
+                    <th>Scalability</th>
+                    <th>Use Case</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>MySQL</strong></td>
+                    <td>SQL</td>
+                    <td><span class="badge bg-warning">Medium</span></td>
+                    <td>Web Apps</td>
+                  </tr>
+                  <tr>
+                    <td><strong>MongoDB</strong></td>
+                    <td>NoSQL</td>
+                    <td><span class="badge bg-success">High</span></td>
+                    <td>Big Data</td>
+                  </tr>
+                  <tr>
+                    <td><strong>PostgreSQL</strong></td>
+                    <td>SQL</td>
+                    <td><span class="badge bg-success">High</span></td>
+                    <td>Enterprise</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feedback Section -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="text-center mb-5">
+            <h2 class="fw-bold mb-3">Share Your Feedback</h2>
+            <p class="lead text-muted">Help us improve our resource collection</p>
+          </div>
+          
+          <form id="feedbackForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Your Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Enter your name">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">Email (Optional)</label>
+                <input type="email" class="form-control" name="email" placeholder="your.email@example.com">
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Resource Suggestion or Feedback</label>
+              <textarea class="form-control" name="feedback" rows="4" 
+                        placeholder="Suggest a resource, report a broken link, or share your thoughts..."></textarea>
+            </div>
+            
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Rating</label>
+              <div class="rating-stars">
+                <input type="radio" id="star5" name="rating" value="5">
+                <label for="star5" title="Excellent">★</label>
+                <input type="radio" id="star4" name="rating" value="4">
+                <label for="star4" title="Good">★</label>
+                <input type="radio" id="star3" name="rating" value="3">
+                <label for="star3" title="Average">★</label>
+                <input type="radio" id="star2" name="rating" value="2">
+                <label for="star2" title="Poor">★</label>
+                <input type="radio" id="star1" name="rating" value="1">
+                <label for="star1" title="Very Poor">★</label>
+              </div>
+            </div>
+            
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary btn-lg">
+                <i class="fas fa-paper-plane me-2"></i>Submit Feedback
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-section text-white py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h5 class="fw-bold mb-3">
+            <i class="fas fa-code me-2"></i>MyTechBlogs
+          </h5>
+          <p class="mb-3">Making tech learning simple and accessible for everyone.</p>
+          <div class="social-links">
+            <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="me-3"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="me-3"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white-50">Home</a></li>
+            <li><a href="about.html" class="text-white-50">About</a></li>
+            <li><a href="contact.html" class="text-white-50">Contact</a></li>
+            <li><a href="resources.html" class="text-white-50">Resources</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Categories</h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white-50">Tutorials</a></li>
+            <li><a href="#" class="text-white-50">Reviews</a></li>
+            <li><a href="#" class="text-white-50">News</a></li>
+            <li><a href="#" class="text-white-50">Tips & Tricks</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <h6 class="fw-bold mb-3">Contact Info</h6>
+          <p class="text-white-50 mb-1">
+            <i class="fas fa-envelope me-2"></i>info@mytechblogs.com
+          </p>
+          <p class="text-white-50 mb-1">
+            <i class="fas fa-phone me-2"></i>+1 (555) 123-4567
+          </p>
+          <p class="text-white-50">
+            <i class="fas fa-map-marker-alt me-2"></i>Tech Valley, Innovation Street
+          </p>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2025 MyTechBlogs | All Rights Reserved</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="text-white-50 me-3">Privacy Policy</a>
+          <a href="#" class="text-white-50">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+  
+  <style>
+    .rating-stars {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      gap: 0.25rem;
+    }
+    
+    .rating-stars input {
+      display: none;
+    }
+    
+    .rating-stars label {
+      font-size: 2rem;
+      color: #ddd;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    
+    .rating-stars label:hover,
+    .rating-stars label:hover ~ label,
+    .rating-stars input:checked ~ label {
+      color: #ffc107;
+    }
+  </style>
+</body>
+</html>bold mb-2">Bootstrap</h5>
+            <p class="text-muted mb-3">The world's most popular CSS framework for building responsive, mobile-first projects.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-primary">CSS Framework</span>
+              <i class="fas fa-external-link-alt text-primary"></i>
+            </div>
+          </a>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <a href="https://react.dev/" target="_blank" class="resource-card">
+            <div class="resource-icon">
+              <i class="fab fa-react"></i>
+            </div>
+            <h5 class="fw-bold mb-2">React</h5>
+            <p class="text-muted mb-3">A JavaScript library for building user interfaces with component-based architecture.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-info">JavaScript Library</span>
+              <i class="fas fa-external-link-alt text-primary"></i>
+            </div>
+          </a>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <a href="https://vuejs.org/" target="_blank" class="resource-card">
+            <div class="resource-icon">
+              <i class="fab fa-vuejs"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Vue.js</h5>
+            <p class="text-muted mb-3">An approachable, performant and versatile framework for building web user interfaces.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-success">Framework</span>
+              <i class="fas fa-external-link-alt text-primary"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Backend Development -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h3 class="fw-bold mb-4">
+            <i class="fas fa-server me-2 text-primary"></i>Backend Development
+          </h3>
+        </div>
+      </div>
+      
+      <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-4">
+          <a href="https://nodejs.org/" target="_blank" class="resource-card">
+            <div class="resource-icon">
+              <i class="fab fa-node-js"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Node.js</h5>
+            <p class="text-muted mb-3">A JavaScript runtime built on Chrome's V8 engine for server-side development.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="badge bg-warning">Runtime</span>
+              <i class="fas fa-external-link-alt text-primary"></i>
+            </div>
+          </a>
+        </div>
+        
+        <div class="col-md-6 col-lg-4">
+          <a href="https://www.python.org/" target="_blank" class="resource-card">
+            <div class="resource-icon">
+              <i class="fab fa-python"></i>
+            </div>
+            <h5 class="fw-
