@@ -6,7 +6,359 @@
   <title>Contact - MyTechBlogs</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4f46e5;
+      --secondary-color: #7c3aed;
+      --success-color: #10b981;
+      --error-color: #ef4444;
+      --warning-color: #f59e0b;
+      --dark-color: #1f2937;
+      --light-gray: #f8fafc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      color: var(--dark-color);
+      padding-top: 76px;
+    }
+
+    /* Navigation */
+    .navbar {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(79, 70, 229, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #fbbf24 !important;
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .contact-hero {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      padding: 120px 0 80px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    }
+
+    .contact-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .animate-fade-in {
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .animate-fade-in-delay {
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Contact Cards */
+    .contact-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(79, 70, 229, 0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(79, 70, 229, 0.15);
+    }
+
+    /* Form Styling */
+    .form-label {
+      color: var(--dark-color);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .form-control, .form-select {
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: #fafbfc;
+    }
+
+    .form-control:focus, .form-select:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+      background: white;
+    }
+
+    /* Validation States */
+    .form-control.is-valid, .form-select.is-valid {
+      border-color: var(--success-color);
+      background: #f0fdf4;
+    }
+
+    .form-control.is-invalid, .form-select.is-invalid {
+      border-color: var(--error-color);
+      background: #fef2f2;
+    }
+
+    .form-control.is-valid:focus, .form-select.is-valid:focus {
+      border-color: var(--success-color);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    }
+
+    .form-control.is-invalid:focus, .form-select.is-invalid:focus {
+      border-color: var(--error-color);
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    }
+
+    /* Custom Validation Messages */
+    .validation-message {
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .validation-message.valid {
+      color: var(--success-color);
+    }
+
+    .validation-message.invalid {
+      color: var(--error-color);
+    }
+
+    .validation-icon {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .validation-icon.valid {
+      color: var(--success-color);
+    }
+
+    .validation-icon.invalid {
+      color: var(--error-color);
+    }
+
+    .input-group {
+      position: relative;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border: none;
+      border-radius: 12px;
+      padding: 0.875rem 2rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn-primary:disabled {
+      background: #9ca3af;
+      transform: none;
+      box-shadow: none;
+      cursor: not-allowed;
+    }
+
+    /* Contact Info */
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--light-gray);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-info-item:hover {
+      background: #f1f5f9;
+      transform: translateX(5px);
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-icon i {
+      color: white;
+      font-size: 1.2rem;
+    }
+
+    /* FAQ Section */
+    .accordion-item {
+      border: 1px solid rgba(79, 70, 229, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .accordion-button {
+      background: white;
+      border: none;
+      padding: 1.5rem;
+      font-weight: 600;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background: var(--light-gray);
+      color: var(--primary-color);
+    }
+
+    .accordion-body {
+      padding: 1.5rem;
+      background: #fafbfc;
+    }
+
+    /* Footer */
+    .footer-section {
+      background: linear-gradient(135deg, var(--dark-color), #374151);
+    }
+
+    .social-links a {
+      color: #9ca3af;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #fbbf24;
+      transform: translateY(-2px);
+    }
+
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-hero {
+        padding: 100px 0 60px;
+      }
+      
+      .contact-card {
+        padding: 1.5rem;
+      }
+      
+      .display-4 {
+        font-size: 2.5rem;
+      }
+    }
+
+    /* Loading Animation */
+    .btn-loading {
+      position: relative;
+    }
+
+    .btn-loading::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 50%;
+      margin-left: -10px;
+      margin-top: -10px;
+      border: 2px solid transparent;
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Success Message */
+    .alert-success {
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+      border: 1px solid var(--success-color);
+      color: #065f46;
+    }
+  </style>
 </head>
 <body>
   <!-- Navigation -->
@@ -53,21 +405,33 @@
         <div class="col-lg-8">
           <div class="contact-card">
             <h2 class="fw-bold mb-4">Send us a Message</h2>
+            <div id="successMessage" class="alert alert-success d-none" role="alert">
+              <i class="fas fa-check-circle me-2"></i>
+              <strong>Success!</strong> Your message has been sent successfully. We'll get back to you within 24 hours.
+            </div>
             <form id="contactForm">
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <label class="form-label fw-semibold">
                     <i class="fas fa-user me-2 text-primary"></i>Full Name *
                   </label>
-                  <input type="text" class="form-control" name="name" required 
-                         placeholder="Enter your full name">
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="name" name="name" required 
+                           placeholder="Enter your full name">
+                    <i class="validation-icon"></i>
+                  </div>
+                  <div class="validation-message" id="nameMessage"></div>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label fw-semibold">
                     <i class="fas fa-envelope me-2 text-primary"></i>Email Address *
                   </label>
-                  <input type="email" class="form-control" name="email" required 
-                         placeholder="your.email@example.com">
+                  <div class="input-group">
+                    <input type="email" class="form-control" id="email" name="email" required 
+                           placeholder="your.email@example.com">
+                    <i class="validation-icon"></i>
+                  </div>
+                  <div class="validation-message" id="emailMessage"></div>
                 </div>
               </div>
               
@@ -76,22 +440,48 @@
                   <label class="form-label fw-semibold">
                     <i class="fas fa-phone me-2 text-primary"></i>Phone Number
                   </label>
-                  <input type="tel" class="form-control" name="phone" 
-                         placeholder="+1 (555) 123-4567">
+                  <div class="d-flex">
+                    <select class="form-select me-2" id="countryCode" name="countryCode" style="max-width: 120px;">
+                      <option value="+1">🇺🇸 +1</option>
+                      <option value="+44">🇬🇧 +44</option>
+                      <option value="+91">🇮🇳 +91</option>
+                      <option value="+86">🇨🇳 +86</option>
+                      <option value="+49">🇩🇪 +49</option>
+                      <option value="+33">🇫🇷 +33</option>
+                      <option value="+81">🇯🇵 +81</option>
+                      <option value="+82">🇰🇷 +82</option>
+                      <option value="+61">🇦🇺 +61</option>
+                      <option value="+55">🇧🇷 +55</option>
+                      <option value="+7">🇷🇺 +7</option>
+                      <option value="+39">🇮🇹 +39</option>
+                      <option value="+34">🇪🇸 +34</option>
+                      <option value="+31">🇳🇱 +31</option>
+                      <option value="+46">🇸🇪 +46</option>
+                    </select>
+                    <div class="input-group flex-grow-1">
+                      <input type="tel" class="form-control" id="phone" name="phone" 
+                             placeholder="1234567890" maxlength="10">
+                      <i class="validation-icon"></i>
+                    </div>
+                  </div>
                 </div>
                 <div class="col-md-6 mb-3">
                   <label class="form-label fw-semibold">
                     <i class="fas fa-tag me-2 text-primary"></i>Subject *
                   </label>
-                  <select class="form-select" name="subject" required>
-                    <option value="">Select a subject</option>
-                    <option value="general">General Inquiry</option>
-                    <option value="collaboration">Collaboration</option>
-                    <option value="feedback">Feedback</option>
-                    <option value="technical">Technical Support</option>
-                    <option value="partnership">Partnership</option>
-                    <option value="other">Other</option>
-                  </select>
+                  <div class="input-group">
+                    <select class="form-select" id="subject" name="subject" required>
+                      <option value="">Select a subject</option>
+                      <option value="general">General Inquiry</option>
+                      <option value="collaboration">Collaboration</option>
+                      <option value="feedback">Feedback</option>
+                      <option value="technical">Technical Support</option>
+                      <option value="partnership">Partnership</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <i class="validation-icon"></i>
+                  </div>
+                  <div class="validation-message" id="subjectMessage"></div>
                 </div>
               </div>
               
@@ -99,8 +489,12 @@
                 <label class="form-label fw-semibold">
                   <i class="fas fa-message me-2 text-primary"></i>Message *
                 </label>
-                <textarea class="form-control" name="message" rows="6" required 
-                          placeholder="Tell us what's on your mind..."></textarea>
+                <div class="input-group">
+                  <textarea class="form-control" id="message" name="message" rows="6" required 
+                            placeholder="Tell us what's on your mind..."></textarea>
+                  <i class="validation-icon" style="top: 20px;"></i>
+                </div>
+                <div class="validation-message" id="messageMessage"></div>
               </div>
               
               <div class="mb-4">
@@ -112,8 +506,10 @@
                 </div>
               </div>
               
-              <button type="submit" class="btn btn-primary btn-lg">
-                <i class="fas fa-paper-plane me-2"></i>Send Message
+              <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                <span class="btn-text">
+                  <i class="fas fa-paper-plane me-2"></i>Send Message
+                </span>
               </button>
             </form>
           </div>
@@ -351,15 +747,6 @@
           </div>
         </div>
         <div class="col-lg-2 col-md-6 mb-4">
-          <h6 class="fw-bold mb-3">Quick Links</h6>
-          <ul class="list-unstyled">
-            <li><a href="index.html" class="text-white-50">Home</a></li>
-            <li><a href="about.html" class="text-white-50">About</a></li>
-            <li><a href="contact.html" class="text-white-50">Contact</a></li>
-            <li><a href="resources.html" class="text-white-50">Resources</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-2 col-md-6 mb-4">
           <h6 class="fw-bold mb-3">Categories</h6>
           <ul class="list-unstyled">
             <li><a href="#" class="text-white-50">Tutorials</a></li>
@@ -400,6 +787,369 @@
   </button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    // Validation patterns and messages
+    const validationRules = {
+      name: {
+        pattern: /^[a-zA-Z\s]{2,50}$/,
+        message: {
+          empty: 'Name is required',
+          invalid: 'Name should contain only letters and spaces (2-50 characters)',
+          valid: 'Name looks good!'
+        }
+      },
+      email: {
+        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+        message: {
+          empty: 'Email is required',
+          invalid: 'Please enter a valid email address',
+          valid: 'Email format is correct!'
+        }
+      },
+      phone: {
+        pattern: /^\d{10}$/,
+        showMessage: false // Don't show validation message for phone
+      },
+      subject: {
+        message: {
+          empty: 'Please select a subject',
+          valid: 'Subject selected!'
+        }
+      },
+      message: {
+        minLength: 10,
+        maxLength: 1000,
+        message: {
+          empty: 'Message is required',
+          tooShort: 'Message should be at least 10 characters long',
+          tooLong: 'Message should not exceed 1000 characters',
+          valid: 'Message looks good!'
+        }
+      }
+    };
+
+    // Validation functions
+    function validateField(fieldName, value, showMessage = true) {
+      const field = document.getElementById(fieldName);
+      const messageEl = document.getElementById(fieldName + 'Message');
+      const icon = field.parentNode.querySelector('.validation-icon');
+      const rule = validationRules[fieldName];
+      
+      let isValid = false;
+      let message = '';
+
+      // Check if field is empty for required fields
+      if (!value.trim() && ['name', 'email', 'subject', 'message'].includes(fieldName)) {
+        message = rule.message.empty;
+        isValid = false;
+      } else if (!value.trim() && fieldName === 'phone') {
+        // Phone is optional
+        isValid = true;
+        message = '';
+      } else {
+        // Validate based on field type
+        switch (fieldName) {
+          case 'name':
+            isValid = rule.pattern.test(value.trim());
+            message = isValid ? rule.message.valid : rule.message.invalid;
+            break;
+            
+          case 'email':
+            isValid = rule.pattern.test(value.trim());
+            message = isValid ? rule.message.valid : rule.message.invalid;
+            break;
+            
+          case 'phone':
+            if (value.trim()) {
+              // Only digits allowed, exactly 10
+              const cleanPhone = value.replace(/\D/g, '');
+              isValid = rule.pattern.test(cleanPhone);
+              message = ''; // No message for phone
+            } else {
+              isValid = true;
+              message = '';
+            }
+            break;
+            
+          case 'subject':
+            isValid = value !== '';
+            message = isValid ? rule.message.valid : rule.message.empty;
+            break;
+            
+          case 'message':
+            const length = value.trim().length;
+            if (length < rule.minLength) {
+              message = rule.message.tooShort;
+              isValid = false;
+            } else if (length > rule.maxLength) {
+              message = rule.message.tooLong;
+              isValid = false;
+            } else {
+              message = rule.message.valid;
+              isValid = true;
+            }
+            break;
+        }
+      }
+
+      // Update UI
+      if (showMessage) {
+        updateFieldUI(field, messageEl, icon, isValid, message);
+      }
+
+      return isValid;
+    }
+
+    function updateFieldUI(field, messageEl, icon, isValid, message) {
+      // Remove existing classes
+      field.classList.remove('is-valid', 'is-invalid');
+      messageEl.classList.remove('valid', 'invalid');
+      icon.classList.remove('valid', 'invalid');
+      
+      // Special handling for phone field - only show visual feedback, no message
+      if (field.id === 'phone') {
+        if (field.value.trim()) {
+          if (isValid) {
+            field.classList.add('is-valid');
+            icon.classList.add('valid');
+            icon.innerHTML = '<i class="fas fa-check-circle"></i>';
+          } else {
+            field.classList.add('is-invalid');
+            icon.classList.add('invalid');
+            icon.innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+          }
+        } else {
+          icon.innerHTML = '';
+        }
+        messageEl.style.display = 'none';
+        return;
+      }
+      
+      if (message) {
+        // Add appropriate classes
+        if (isValid) {
+          field.classList.add('is-valid');
+          messageEl.classList.add('valid');
+          icon.classList.add('valid');
+          icon.innerHTML = '<i class="fas fa-check-circle"></i>';
+        } else {
+          field.classList.add('is-invalid');
+          messageEl.classList.add('invalid');
+          icon.classList.add('invalid');
+          icon.innerHTML = '<i class="fas fa-exclamation-circle"></i>';
+        }
+        
+        messageEl.textContent = message;
+        messageEl.style.display = 'block';
+      } else {
+        messageEl.style.display = 'none';
+        icon.innerHTML = '';
+      }
+    }
+
+    // Real-time validation
+    function setupRealTimeValidation() {
+      const fields = ['name', 'email', 'phone', 'subject', 'message'];
+      
+      fields.forEach(fieldName => {
+        const field = document.getElementById(fieldName);
+        
+        // Validate on blur
+        field.addEventListener('blur', function() {
+          validateField(fieldName, this.value);
+        });
+        
+        // Real-time validation for text inputs (with debounce)
+        if (fieldName !== 'subject') {
+          let timeout;
+          field.addEventListener('input', function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+              validateField(fieldName, this.value);
+            }, 500);
+          });
+        } else {
+          // Immediate validation for select
+          field.addEventListener('change', function() {
+            validateField(fieldName, this.value);
+          });
+        }
+      });
+    }
+
+    // Form submission
+    function setupFormSubmission() {
+      const form = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const successMessage = document.getElementById('successMessage');
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate all fields
+        const fields = ['name', 'email', 'phone', 'subject', 'message'];
+        let isFormValid = true;
+        
+        fields.forEach(fieldName => {
+          const field = document.getElementById(fieldName);
+          const isValid = validateField(fieldName, field.value);
+          if (!isValid && fieldName !== 'phone') { // phone is optional
+            isFormValid = false;
+          }
+        });
+        
+        if (isFormValid) {
+          // Show loading state
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span class="btn-text">Sending...</span>';
+          submitBtn.classList.add('btn-loading');
+          
+          // Simulate form submission
+          setTimeout(() => {
+            // Hide loading state
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span class="btn-text"><i class="fas fa-paper-plane me-2"></i>Send Message</span>';
+            submitBtn.classList.remove('btn-loading');
+            
+            // Show success message
+            successMessage.classList.remove('d-none');
+            
+            // Reset form
+            form.reset();
+            
+            // Clear validation states
+            const allFields = form.querySelectorAll('.form-control, .form-select');
+            allFields.forEach(field => {
+              field.classList.remove('is-valid', 'is-invalid');
+            });
+            
+            const allMessages = form.querySelectorAll('.validation-message');
+            allMessages.forEach(msg => {
+              msg.style.display = 'none';
+              msg.classList.remove('valid', 'invalid');
+            });
+            
+            const allIcons = form.querySelectorAll('.validation-icon');
+            allIcons.forEach(icon => {
+              icon.innerHTML = '';
+              icon.classList.remove('valid', 'invalid');
+            });
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+              successMessage.classList.add('d-none');
+            }, 5000);
+            
+            // Scroll to top of form
+            document.querySelector('.contact-card').scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start' 
+            });
+            
+          }, 2000);
+        } else {
+          // Scroll to first invalid field
+          const firstInvalid = form.querySelector('.is-invalid');
+          if (firstInvalid) {
+            firstInvalid.focus();
+            firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      });
+    }
+
+    // Phone number formatting
+    function setupPhoneFormatting() {
+      const phoneField = document.getElementById('phone');
+      
+      phoneField.addEventListener('input', function() {
+        // Only allow digits, limit to 10
+        let value = this.value.replace(/\D/g, '');
+        if (value.length > 10) {
+          value = value.slice(0, 10);
+        }
+        this.value = value;
+      });
+    }
+
+    // Character counter for message
+    function setupCharacterCounter() {
+      const messageField = document.getElementById('message');
+      const messageContainer = messageField.parentNode.parentNode;
+      
+      // Create character counter
+      const counter = document.createElement('div');
+      counter.className = 'text-muted text-end mt-1';
+      counter.style.fontSize = '0.875rem';
+      messageContainer.appendChild(counter);
+      
+      function updateCounter() {
+        const length = messageField.value.length;
+        const maxLength = validationRules.message.maxLength;
+        counter.textContent = `${length}/${maxLength} characters`;
+        
+        if (length > maxLength * 0.9) {
+          counter.style.color = '#ef4444';
+        } else if (length > maxLength * 0.7) {
+          counter.style.color = '#f59e0b';
+        } else {
+          counter.style.color = '#6b7280';
+        }
+      }
+      
+      messageField.addEventListener('input', updateCounter);
+      updateCounter(); // Initialize
+    }
+
+    // Back to top functionality
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    function setupBackToTop() {
+      const backToTopBtn = document.getElementById('backToTop');
+      
+      window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+          backToTopBtn.style.display = 'flex';
+        } else {
+          backToTopBtn.style.display = 'none';
+        }
+      });
+    }
+
+    // Initialize everything when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      setupRealTimeValidation();
+      setupFormSubmission();
+      setupPhoneFormatting();
+      setupCharacterCounter();
+      setupBackToTop();
+      
+      // Add some interactive effects
+      const contactCards = document.querySelectorAll('.contact-card');
+      contactCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0)';
+        });
+      });
+    });
+  </script>
 </body>
-</html>
+</html>-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="text-white-50">Home</a></li>
+            <li><a href="about.html" class="text-white-50">About</a></li>
+            <li><a href="contact.html" class="text-white-50">Contact</a></li>
+            <li><a href="resources.html" class="text-white-50">Resources</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col
